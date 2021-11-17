@@ -1,13 +1,14 @@
 # Local .terraform directories
-**/.terraform/*
+.terraform/
 
 # .tfstate files
-*.tfstate
+.tfstate
 *.tfstate.*
 
 # Crash log files
 crash.log
 
+.terraform*
 # Ignore any .tfvars files that are generated automatically for each Terraform run. Most
 # .tfvars files are managed as part of configuration and so should be included in
 # version control.
@@ -20,6 +21,8 @@ override.tf
 override.tf.json
 *_override.tf
 *_override.tf.json
+
+remote.sh
 
 # Include override files you do wish to add to version control using negated pattern
 #
