@@ -1,33 +1,12 @@
-terraform {
-  required_providers {
-    azurerm = {
-      source  = "hashicorp/azurerm"
-      version = "=2.46.0"
-    }
-  }
-  backend "azurerm" {
-    resource_group_name  = "mario-robles"
-    storage_account_name = "tfstateac"
-    container_name       = "tfstatecn"
-    key                  = "terraform.tfstate"
-  }
-
-}
-
-provider "azurerm" {
-  features {}
-}
-
-
 data "azurerm_resource_group" "main" {
   name = "mario-robles"
 }
 
 resource "azurerm_kubernetes_cluster" "main" {
-  name                = "final-aks"
+  name                = "boutiqueaks"
   location            = data.azurerm_resource_group.main.location
   resource_group_name = data.azurerm_resource_group.main.name
-  dns_prefix          = "finalaks"
+  dns_prefix          = "boutiqueaks"
 
   default_node_pool {
     name       = "default"
@@ -56,7 +35,7 @@ output "kube_config" {
 
 
 resource "azurerm_container_registry" "acr" {
-  name                = "finaldouacr"
+  name                = "boutiqueaksacr"
   resource_group_name = data.azurerm_resource_group.main.name
   location            = data.azurerm_resource_group.main.location
   sku                 = "Standard"
