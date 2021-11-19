@@ -1,12 +1,12 @@
 data "azurerm_resource_group" "main" {
-  name = "mario-robles"
+  name = "finalproject"
 }
 
 resource "azurerm_kubernetes_cluster" "main" {
-  name                = "boutiqueaks"
+  name                = "boutiqueaks1"
   location            = data.azurerm_resource_group.main.location
   resource_group_name = data.azurerm_resource_group.main.name
-  dns_prefix          = "boutiqueaks"
+  dns_prefix          = "boutiqueaks1"
 
   default_node_pool {
     name       = "default"
