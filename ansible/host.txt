@@ -1,0 +1,1 @@
+vault.eastus.cloudapp.azure.com ansible_user=myvault
